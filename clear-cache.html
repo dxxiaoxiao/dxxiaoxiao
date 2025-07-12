@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>清除缓存指南</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .instructions {
+            margin-bottom: 30px;
+        }
+        .browser {
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+        h2 {
+            color: #3498db;
+            margin-top: 0;
+        }
+        ol {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-weight: bold;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        .btn-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .note {
+            background-color: #fef9e7;
+            border-left: 4px solid #f1c40f;
+            padding: 15px;
+            margin-top: 30px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>清除浏览器缓存指南</h1>
+        
+        <div class="instructions">
+            <p>如果您看到的不是最新版本的待办事项应用，可能是由于浏览器缓存了旧版本的文件。请按照以下步骤清除浏览器缓存：</p>
+            
+            <div class="browser">
+                <h2>Chrome</h2>
+                <ol>
+                    <li>按下 <strong>Ctrl+Shift+Delete</strong> (Windows) 或 <strong>Command+Shift+Delete</strong> (Mac)</li>
+                    <li>时间范围选择"过去1小时"</li>
+                    <li>勾选"缓存的图片和文件"</li>
+                    <li>点击"清除数据"</li>
+                </ol>
+            </div>
+            
+            <div class="browser">
+                <h2>Firefox</h2>
+                <ol>
+                    <li>按下 <strong>Ctrl+Shift+Delete</strong> (Windows) 或 <strong>Command+Shift+Delete</strong> (Mac)</li>
+                    <li>时间范围选择"最近1小时"</li>
+                    <li>勾选"缓存"</li>
+                    <li>点击"立即清除"</li>
+                </ol>
+            </div>
+            
+            <div class="browser">
+                <h2>Edge</h2>
+                <ol>
+                    <li>按下 <strong>Ctrl+Shift+Delete</strong></li>
+                    <li>时间范围选择"过去1小时"</li>
+                    <li>勾选"缓存的图片和文件"</li>
+                    <li>点击"立即清除"</li>
+                </ol>
+            </div>
+            
+            <div class="browser">
+                <h2>Safari</h2>
+                <ol>
+                    <li>点击菜单中的"Safari"</li>
+                    <li>选择"清除历史记录和网站数据..."</li>
+                    <li>选择"最近一小时"</li>
+                    <li>点击"立即清除"</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="note">
+            <p><strong>提示：</strong> 清除缓存后，请刷新页面或点击下方按钮访问待办事项应用。如果仍然看到旧版本，请尝试使用隐私浏览模式打开应用。</p>
+        </div>
+        
+        <div class="btn-container">
+            <a href="todolist.html?v=1.0.2&t=" class="btn" id="todoBtn">访问待办事项应用</a>
+        </div>
+    </div>
+    
+    <script>
+        // 添加时间戳参数以避免缓存问题
+        document.addEventListener('DOMContentLoaded', function() {
+            const todoBtn = document.getElementById('todoBtn');
+            const timestamp = new Date().getTime();
+            todoBtn.href = `todolist.html?v=1.0.2&t=${timestamp}`;
+        });
+    </script>
+</body>
+</html>
