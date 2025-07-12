@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>重定向到待办事项列表</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .loading-container {
+            text-align: center;
+        }
+        .loading-spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            border-top: 4px solid #3498db;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .message {
+            margin-bottom: 20px;
+        }
+        .manual-link {
+            color: #3498db;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 1px solid #3498db;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        .manual-link:hover {
+            background-color: #3498db;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-container">
+        <h2>正在加载待办事项列表...</h2>
+        <div class="loading-spinner"></div>
+        <p class="message">如果页面没有自动跳转，请点击下方链接：</p>
+        <a href="todolist.html" class="manual-link">进入待办事项列表</a>
+    </div>
+
+    <script>
+        // 添加随机参数以避免缓存问题
+        function redirectWithTimestamp() {
+            const timestamp = new Date().getTime();
+            const randomParam = Math.floor(Math.random() * 1000000);
+            window.location.href = `todolist.html?v=${timestamp}-${randomParam}`;
+        }
+        
+        // 页面加载后立即重定向
+        window.onload = function() {
+            setTimeout(redirectWithTimestamp, 1500); // 延迟1.5秒以显示加载动画
+        };
+    </script>
+</body>
+</html>
