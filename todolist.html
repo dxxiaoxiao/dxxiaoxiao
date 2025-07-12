@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>待办事项列表 - v1.0.2</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css?v=1.0.2">
+</head>
+<body>
+    <!-- 加载动画 -->
+    <div id="loading" class="loading-container">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <div class="container">
+        <h1>待办事项列表</h1>
+        <p class="version-indicator">v1.0.2</p>
+        
+        <!-- 添加任务区域 -->
+        <div class="add-task">
+            <input type="text" id="taskInput" placeholder="添加新的待办事项..." autofocus>
+            <button id="addTaskBtn">添加</button>
+        </div>
+        
+        <!-- 过滤器 -->
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">全部</button>
+            <button class="filter-btn" data-filter="active">未完成</button>
+            <button class="filter-btn" data-filter="completed">已完成</button>
+        </div>
+        
+        <!-- 任务列表 -->
+        <ul id="taskList" class="task-list">
+            <!-- 任务项将通过JavaScript动态添加 -->
+        </ul>
+        
+        <!-- 任务统计和操作 -->
+        <div class="task-stats">
+            <span><span id="taskCount">0</span> 项待办</span>
+            <button id="clearCompletedBtn">清除已完成</button>
+        </div>
+    </div>
+    
+    <script src="app.js?v=1.0.2"></script>
+</body>
+</html>
